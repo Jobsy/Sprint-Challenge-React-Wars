@@ -1,6 +1,8 @@
 // import React from 'react';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import { Header } from "./components/Header";
+import { Bio } from "./components/Bio";
 import './App.css';
 
 const App = () => {
@@ -18,7 +20,7 @@ const App = () => {
     useEffect(() => {
       const fetchData = () => {
         axios
-          .get("https://swapik.co/api/people")
+          .get("https://swapi.co/api/people")
           .then(res => {
             console.log("mmmmmm: ", res.data.results)
             setData(res.data.results);
@@ -55,8 +57,12 @@ const App = () => {
         {data1.map(item => (
           // console.log(">>>>: ", item)
           // <li key={item.objectID}>
-            <div>{item.name} {item.gender} {item.birth_year} {item.height} {item.hair_color}{item.skin_color}{item.eye_color}</div>
-          // </li>
+          <>
+          {/* <Header  name={item.name} />
+          <Bio  gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} /> */}
+            <div>{item.films.map(item2 => (console.log("lllll: ", item2)))}</div>
+          </>
+          
         ))}
       </ul>
     </div>
