@@ -20,7 +20,7 @@ const App = () => {
 
 
   const [data1, setData] = useState([]);
-  
+
   useEffect(() => {
     const fetchData = () => {
       axios
@@ -35,45 +35,46 @@ const App = () => {
     };
     fetchData();
   }, []);
-  
+
   return (
     <>
       <Wrapper>
         <Container>
           <h1 className="Header">React Wars</h1>
-          <ul>
-            {data1.map(item => (
-              <>
-                <Header name={item.name} />
-                <InfoStyle>
-                  <BioStyle>
-                    <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} />
-                  </BioStyle>
-                  <FilmsUrlStyle>
-                    {item.films.map(item2 => (
-                      <Films filmUrl={item2} />
-                    ))}
-                  </FilmsUrlStyle>
-                </InfoStyle>
-                {/* <div>
+
+          {data1.map(item => (
+            <>
+              <Header name={item.name} />
+              <InfoStyle>
+                <BioStyle>
+                  <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} />
+                </BioStyle>
+                <FilmsUrlStyle>
+                  <h4>Films URL</h4>
+                  {item.films.map(item2 => (
+                    <Films filmUrl={item2} />
+                  ))}
+                </FilmsUrlStyle>
+              </InfoStyle>
+              {/* <div>
               {item.spicies.map(item3 => (
                 <Spicies spicie={item3} />
               ))}
             </div> */}
-                {/* <div>
+              {/* <div>
               {item.starships.map(item4 => (
                 <Starships starship={item4} />
               ))}
             </div> */}
-                {/* <div>
+              {/* <div>
               {item.Vehicles.map(item5 => (
                 <Vehicles Vehicle={item5} />
               ))}
             </div> */}
-              </>
+            </>
 
-            ))}
-          </ul>
+          ))}
+
         </Container>
       </Wrapper>
     </>
