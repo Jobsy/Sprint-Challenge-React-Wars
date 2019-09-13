@@ -8,7 +8,7 @@ export const Header = function (props) {
     return (
         <>
             <div>
-                <h2>{props.name}</h2>
+                <h2>Warrior Name: {props.name}</h2>
             </div>
         </>
     );

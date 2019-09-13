@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { Header } from "./components/Header";
 import { Bio } from "./components/Bio";
+import { Films } from "./components/Films";
+import { Spicies } from "./components/Spicies";
+import { Starships } from "./components/Starships";
+import { Vehicles } from "./components/Vehicles";
 import './App.css';
 
 const App = () => {
@@ -13,25 +17,25 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-  
-  const [data1, setData] = useState([] );
-    // const [query, setQuery] = useState("2019-09-11");
-  
-    useEffect(() => {
-      const fetchData = () => {
-        axios
-          .get("https://swapi.co/api/people")
-          .then(res => {
-            console.log("mmmmmm: ", res.data.results)
-            setData(res.data.results);
-          })
-          .catch(error => {
-            // setData(error.response.status)
-          })
-      };
-      fetchData();
-    }, []);
-    console.log("ddddddd: ", data1)
+
+  const [data1, setData] = useState([]);
+  // const [query, setQuery] = useState("2019-09-11");
+
+  useEffect(() => {
+    const fetchData = () => {
+      axios
+        .get("https://swapi.co/api/people")
+        .then(res => {
+          console.log("mmmmmm: ", res.data.results)
+          setData(res.data.results);
+        })
+        .catch(error => {
+          // setData(error.response.status)
+        })
+    };
+    fetchData();
+  }, []);
+  console.log("ddddddd: ", data1)
   //   return (
   //     <>
   //       <Wrapper>
@@ -45,9 +49,9 @@ const App = () => {
   //     </>
   //   );
   // }
-  
+
   // export default App;
-  
+
 
 
   return (
@@ -58,11 +62,33 @@ const App = () => {
           // console.log(">>>>: ", item)
           // <li key={item.objectID}>
           <>
-          {/* <Header  name={item.name} />
-          <Bio  gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} /> */}
-            <div>{item.films.map(item2 => (console.log("lllll: ", item2)))}</div>
+            <Header name={item.name} />
+            {/* <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} /> */}
+
+            <div className="InfoStyle">
+              <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} />
+
+              {item.films.map(item2 => (
+                <Films filmUrl={item2} />
+              ))}
+            </div>
+            {/* <div>
+              {item.spicies.map(item3 => (
+                <Spicies spicie={item3} />
+              ))}
+            </div> */}
+            {/* <div>
+              {item.starships.map(item4 => (
+                <Starships starship={item4} />
+              ))}
+            </div> */}
+            {/* <div>
+              {item.Vehicles.map(item5 => (
+                <Vehicles Vehicle={item5} />
+              ))}
+            </div> */}
           </>
-          
+
         ))}
       </ul>
     </div>
