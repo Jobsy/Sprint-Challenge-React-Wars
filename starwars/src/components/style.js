@@ -31,4 +31,4 @@ export const BioStyle = styled.div`
     text-align: left;
   `;
   
-export const filmsUrlStyle = BioStyle;
+export const FilmsUrlStyle = BioStyle;

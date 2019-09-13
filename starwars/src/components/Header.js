@@ -1,6 +1,6 @@
 
 import React from "react";
-
+import { HeaderStyle } from "./style.js"
 
 
 export const Header = function (props) {
