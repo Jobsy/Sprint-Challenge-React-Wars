@@ -23,7 +23,7 @@ export const HeaderStyle = styled.div`
 export const InfoStyle = styled.div`
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-between;
   `;
 
 
