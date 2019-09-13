@@ -7,9 +7,9 @@ export const Header = function (props) {
 
     return (
         <>
-            <div>
+            <HeaderStyle>
                 <h2>Warrior Name: {props.name}</h2>
-            </div>
+            </HeaderStyle>
         </>
     );
 };
