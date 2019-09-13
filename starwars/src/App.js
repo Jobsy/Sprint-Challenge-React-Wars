@@ -66,11 +66,14 @@ const App = () => {
             {/* <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} /> */}
 
             <div className="InfoStyle">
-              <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} />
-
-              {item.films.map(item2 => (
-                <Films filmUrl={item2} />
-              ))}
+              <div className="BioStyle">
+                <Bio gender={item.gender} dob={item.birth_year} height={item.height} hair={item.hair_color} skin={item.skin_color} eye={item.eye_color} />
+              </div>
+              <div className="filmsUrlStyle">
+                {item.films.map(item2 => (
+                  <Films filmUrl={item2} />
+                ))}
+              </div>
             </div>
             {/* <div>
               {item.spicies.map(item3 => (

@@ -6,6 +6,7 @@ export const Bio = function (props) {
 
     return (
         <>
+            <h4>Bio Data</h4>
             <ul>
                 <li>Gender: {props.gender}</li>
                 <li>Date of Birth: {props.dob}</li>
