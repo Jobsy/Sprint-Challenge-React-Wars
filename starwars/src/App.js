@@ -64,7 +64,7 @@ const App = () => {
                   ))}
                 </FilmsUrlStyle>
               </InfoStyle>
-              {/* <div>
+              <div>
               {item.species.map(item3 => (
                 <Species specie={item3} />
               ))}
@@ -78,7 +78,7 @@ const App = () => {
               {item.vehicles.map(item5 => (
                 <Vehicles vehicle={item5} />
               ))}
-            </div> */}
+            </div>
             </>
 
           ))}
