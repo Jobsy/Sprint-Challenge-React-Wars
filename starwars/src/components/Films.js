@@ -7,7 +7,7 @@ export const Films = function (props) {
     return (
         <>
             <div>
-                <p>{props.filmUrl}</p>
+                <p><a href="{props.filmUrl}">{props.filmUrl}</a></p>
             </div>
         </>
     );

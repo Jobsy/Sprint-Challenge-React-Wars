@@ -7,7 +7,7 @@ export const Spicies = function (props) {
     return (
         <>
             <ul>
-                <li>{props.spicie}</li>
+                <li>{props.specie}</li>
             </ul>
         </>
     );

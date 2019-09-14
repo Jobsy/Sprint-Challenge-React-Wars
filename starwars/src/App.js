@@ -17,17 +17,22 @@ const App = () => {
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
+  
 
-
-  const [data1, setData] = useState([]);
-
+  // const [data1, setData] = useState([]);
+  const [data1, setData] = useState({results: [] });
+  // const [data1, setData] = useState({hits: [] });
   useEffect(() => {
     const fetchData = () => {
       axios
         .get("https://swapi.co/api/people")
+        // .get("https://hn.algolia.com/api/v1/search?")
         .then(res => {
-          console.log("mmmmmm: ", res.data.results)
-          setData(res.data.results);
+          // console.log("eeeee: ", res);
+          console.log("mmmmmm: ", res.data)
+          // console.log("mmmmmm: ", res.data.results)
+          // setData(res.data.results);
+          setData(res.data);
         })
         .catch(error => {
           // setData(error.response.status)
@@ -35,14 +40,17 @@ const App = () => {
     };
     fetchData();
   }, []);
-
+  // console.log("mjfkfkfkd: ", data1.hits)
   return (
     <>
       <Wrapper>
         <Container>
           <h1 className="Header">React Wars</h1>
 
-          {data1.map(item => (
+          {data1.results.map(item => (
+            // console.log(item)
+            // <>{const item = data2 || []}</>
+            
             <>
               <Header name={item.name} />
               <InfoStyle>
@@ -57,18 +65,18 @@ const App = () => {
                 </FilmsUrlStyle>
               </InfoStyle>
               {/* <div>
-              {item.spicies.map(item3 => (
-                <Spicies spicie={item3} />
+              {item.species.map(item3 => (
+                <Spicies specie={item3} />
               ))}
-            </div> */}
-              {/* <div>
+            </div>
+              <div>
               {item.starships.map(item4 => (
                 <Starships starship={item4} />
               ))}
-            </div> */}
-              {/* <div>
-              {item.Vehicles.map(item5 => (
-                <Vehicles Vehicle={item5} />
+            </div>
+              <div>
+              {item.vehicles.map(item5 => (
+                <Vehicles vehicle={item5} />
               ))}
             </div> */}
             </>
