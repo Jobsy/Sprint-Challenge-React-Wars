@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Header } from "./components/Header";
 import { Bio } from "./components/Bio";
 import { Films } from "./components/Films";
-import { Spicies } from "./components/Spicies";
+import { Species } from "./components/Species";
 import { Starships } from "./components/Starships";
 import { Vehicles } from "./components/Vehicles";
 import { Container, Wrapper, InfoStyle, BioStyle, FilmsUrlStyle } from "./components/style";
@@ -66,7 +66,7 @@ const App = () => {
               </InfoStyle>
               {/* <div>
               {item.species.map(item3 => (
-                <Spicies specie={item3} />
+                <Species specie={item3} />
               ))}
             </div>
               <div>
