@@ -17,21 +17,14 @@ const App = () => {
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
-  
 
-  // const [data1, setData] = useState([]);
-  const [data1, setData] = useState({results: [] });
-  // const [data1, setData] = useState({hits: [] });
+
+  const [data1, setData] = useState({ results: [] });
   useEffect(() => {
     const fetchData = () => {
       axios
         .get("https://swapi.co/api/people")
-        // .get("https://hn.algolia.com/api/v1/search?")
         .then(res => {
-          // console.log("eeeee: ", res);
-          console.log("mmmmmm: ", res.data)
-          // console.log("mmmmmm: ", res.data.results)
-          // setData(res.data.results);
           setData(res.data);
         })
         .catch(error => {
@@ -40,7 +33,7 @@ const App = () => {
     };
     fetchData();
   }, []);
-  // console.log("mjfkfkfkd: ", data1.hits)
+
   return (
     <>
       <Wrapper>
@@ -48,9 +41,6 @@ const App = () => {
           <h1 className="Header">React Wars</h1>
 
           {data1.results.map(item => (
-            // console.log(item)
-            // <>{const item = data2 || []}</>
-            
             <>
               <Header name={item.name} />
               <InfoStyle>
@@ -65,24 +55,22 @@ const App = () => {
                 </FilmsUrlStyle>
               </InfoStyle>
               <div>
-              {item.species.map(item3 => (
-                <Species specie={item3} />
-              ))}
-            </div>
+                {item.species.map(item3 => (
+                  <Species specie={item3} />
+                ))}
+              </div>
               <div>
-              {item.starships.map(item4 => (
-                <Starships starship={item4} />
-              ))}
-            </div>
+                {item.starships.map(item4 => (
+                  <Starships starship={item4} />
+                ))}
+              </div>
               <div>
-              {item.vehicles.map(item5 => (
-                <Vehicles vehicle={item5} />
-              ))}
-            </div>
+                {item.vehicles.map(item5 => (
+                  <Vehicles vehicle={item5} />
+                ))}
+              </div>
             </>
-
           ))}
-
         </Container>
       </Wrapper>
     </>
